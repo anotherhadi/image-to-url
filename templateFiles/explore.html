@@ -16,17 +16,22 @@
         </div>
     {% endif %}  
     {% endwith %}
+    <div class="explore-container">
+        {% for image in images %}
+        <div class="items">
+            <p><strong>{{image[0]}}</strong></p>
+            <div style="padding-bottom: 20px;"></div>
+            <img class="img" src="{{ url_for('image', path=image[1]) }}" />
+            <div style="padding-bottom: 20px;"></div>
+            <p id="link">{{url}}{{image[1]}}</p>
+            <div style="padding-bottom: 10px;"></div>
+        </div>
+        {% endfor %}
+    </div>
 
     <div class="container">
-        <h1>Log in</h1>
-        <div style="padding-bottom: 20px;"></div>
-        <form action = "/login" method = "POST">
-            <label>nsec : </label>
-            <input type="password" placeholder="nsec..." name ="nsec" />
-            <div style="padding-bottom: 20px;"></div>
-            <button type="submit" class="btn-small btn">Log in</button>
-
-        </form>
+        <button class="btm-small" onclick="window.location.href='{{ url_for( 'explore' , level=level-1 ) }}';">Previous Page</button>
+        <button class="btm-small" onclick="window.location.href='{{ url_for( 'explore' , level=level+1 ) }}';">Next Page</button>
     </div>
 
 </body>

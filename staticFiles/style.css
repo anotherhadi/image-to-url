@@ -1,3 +1,5 @@
+@font-face { font-family: Poppins; src: url('Poppins-Medium.ttf'); } 
+
 :root{
 	--background: #151D27;
     --white: #F0F7F4;
@@ -24,7 +26,7 @@
 
 html{
 	scroll-behavior: smooth;
-	font-family: 'Montserrat', sans-serif;
+	font-family: 'Poppins', sans-serif;
 }
 
 body{
@@ -40,58 +42,89 @@ body{
     transform: translate(-50%, -50%);
 }
 
+form{
+    display: grid;
+    justify-content: center;
+}
+
+.notifications{
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    padding: 10px;
+    border-radius: 20px;
+    background-color: var(--third);
+    color: var(--white);
+}
+
 .img{
     max-width: 300px;
     max-height: 300px;
 }
 
-button {
-    color: #fff;
+h1,h2,p,a{
+    text-align: center;
+}
+
+input{
+    margin: auto;
+    display: block;
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--background);
+    border: none;
+    border-bottom: 1px solid var(--primary);
+    color: var(--white);
+}
+
+input:focus{
+    box-shadow: none;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid var(--third);
+}
+
+.explore-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    align-content: space-around
+}
+.item {
+    flex: 1 1 auto;
+    margin: 10px;
+}
+
+button,.btn {
+    margin: auto;
+    position: relative;
+    color: var(--white);
+    background-color: var(--primary);
     border-radius: 5px;
     padding: 10px 25px;
     font-weight: 500;
-    background: transparent;
     cursor: pointer;
-    transition: all 0.3s ease;
-    position: relative;
     display: inline-block;
-    box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
-    7px 7px 20px 0px rgba(0,0,0,.1),
-    4px 4px 5px 0px rgba(0,0,0,.1);
     outline: none;
 }
 
-.small-btn{
+a{
+    text-decoration: none;
+    color: var(--primary);
+}
+
+a:hover{
+    text-decoration: underline;
+    color: var(--secondary);
+}
+
+.btn-small{
     width: 130px;
     height: 40px;
 }
 
-.btn {
-    border: none;
-    color: var(--white);
-    background-color: var(--primary);
-}
-.btn:after {
-    position: absolute;
-    content: "";
-    width: 0;
-    height: 100%;
-    top: 0;
-    left: 0;
-    direction: rtl;
-    z-index: -1;
-    box-shadow:
-        -7px -7px 20px 0px #fff9,
-        -4px -4px 5px 0px #fff9,
-        7px 7px 20px 0px #0002,
-        4px 4px 5px 0px #0001;
-    transition: all 0.3s ease;
-}
-.btn:hover:after {
-    left: auto;
-    right: 0;
+.btn-big{
     width: 100%;
-}
-.btn:active {
-    top: 2px;
+    height: 40px;
 }

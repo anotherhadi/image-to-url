@@ -1,7 +1,7 @@
 <head>
 	<meta charset="utf-8">
 	<title>ITU</title>
-	<link rel="shortcut icon" type="image/png" href=""/>
+	<link rel="shortcut icon" type="image/png" href="/staticFiles/favicon.png"/>
 	<meta content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
 	<link href="/staticFiles/style.css" rel="stylesheet" type="text/css">
 </head>
@@ -9,9 +9,11 @@
 <body>
     {% with messages = get_flashed_messages() %}  
     {% if messages %}  
-          {% for message in messages %}  
-               <p>{{ message }}</p>  
-          {% endfor %}  
+        <div class="notifications">
+              {% for message in messages %}  
+                   <p>{{ message }}</p>  
+              {% endfor %}  
+        </div>
     {% endif %}  
     {% endwith %}
     <div class="container">
@@ -19,7 +21,20 @@
         <div style="padding-bottom: 20px;"></div>
         <img class="img" src="{{ url_for('image', path=path) }}" />
         <div style="padding-bottom: 20px;"></div>
-        <p>{{link}}</p>
+        <p id="link">{{link}}</p>
+        <div style="padding-bottom: 10px;"></div>
+        <button onclick="copyContent()" class="btn-big">Copy url</button>
+        <script>
+            let text = document.getElementById('link').innerHTML;
+            const copyContent = async () => {
+              try {
+                await navigator.clipboard.writeText(text);
+              } catch (err) {
+                console.error('Failed to copy: ', err);
+              }
+            }
+        </script>
+        <div style="padding-bottom: 20px;"></div>
         <p><a href="{{url_for('new')}}">Upload another image</a></p>
     </div>
 

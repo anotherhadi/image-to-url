@@ -1,7 +1,7 @@
 <head>
 	<meta charset="utf-8">
 	<title>ITU</title>
-	<link rel="shortcut icon" type="image/png" href=""/>
+	<link rel="shortcut icon" type="image/png" href="/staticFiles/favicon.png"/>
 	<meta content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
 	<link href="/staticFiles/style.css" rel="stylesheet" type="text/css">
 </head>
@@ -9,9 +9,11 @@
 <body>
     {% with messages = get_flashed_messages() %}  
     {% if messages %}  
-          {% for message in messages %}  
-               <p>{{ message }}</p>  
-          {% endfor %}  
+        <div class="notifications">
+              {% for message in messages %}  
+                   <p>{{ message }}</p>  
+              {% endfor %}  
+        </div>
     {% endif %}  
     {% endwith %}
 
@@ -23,10 +25,24 @@
             <label>Name:</label>
             <input type='text' name='name' />
             <div style="padding-bottom: 20px;"></div>
-            <input type='file' name='file' class="btn"/>
+
+            <input type="file" name="file" id="actual-btn" style="display: none" hidden />
+            <label class="btn" for="actual-btn">Choose File</label>
+            <span style="text-align: center;" id="file-chosen">No file chosen</span>
+
             <div style="padding-bottom: 20px;"></div>
-            <button type="submit" class="btn-small btn">Send</button>
+            <button type="submit" class="btn">Send</button>
         </form>
     </div>
+
+    <script>
+        const actualBtn = document.getElementById('actual-btn');
+
+        const fileChosen = document.getElementById('file-chosen');
+
+        actualBtn.addEventListener('change', function(){
+        fileChosen.textContent = this.files[0].name
+        })
+    </script>
 
 </body>
