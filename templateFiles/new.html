@@ -1,0 +1,32 @@
+<head>
+	<meta charset="utf-8">
+	<title>ITU</title>
+	<link rel="shortcut icon" type="image/png" href=""/>
+	<meta content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+	<link href="/staticFiles/style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    {% with messages = get_flashed_messages() %}  
+    {% if messages %}  
+          {% for message in messages %}  
+               <p>{{ message }}</p>  
+          {% endfor %}  
+    {% endif %}  
+    {% endwith %}
+
+    
+    <div class="container">
+        <h1>Upload</h1>
+        <div style="padding-bottom: 20px;"></div>
+        <form action = "/new" method = "POST" enctype="multipart/form-data">
+            <label>Name:</label>
+            <input type='text' name='name' />
+            <div style="padding-bottom: 20px;"></div>
+            <input type='file' name='file' class="btn"/>
+            <div style="padding-bottom: 20px;"></div>
+            <button type="submit" class="btn-small btn">Send</button>
+        </form>
+    </div>
+
+</body>

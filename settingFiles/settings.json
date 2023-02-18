@@ -1,0 +1,10 @@
+{
+    "URL":"https://exemple.com/",
+    "PORT":"6969",
+    "ALLOW_EVERYONE":false,
+    "NSEC":[],
+    "IMAGE_NAME_SIZE":10,
+    "IMAGE_MAX_SIZE": 16777216,
+    "ALLOWED_EXTENSIONS":["png", "jpg", "jpeg", "gif"],
+    "EXPLORE":false
+}

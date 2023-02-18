@@ -1,0 +1,28 @@
+<head>
+	<meta charset="utf-8">
+	<title>ITU</title>
+	<link rel="shortcut icon" type="image/png" href=""/>
+	<meta content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+	<link href="/staticFiles/style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    {% with messages = get_flashed_messages() %}  
+    {% if messages %}  
+          {% for message in messages %}  
+               <p>{{ message }}</p>  
+          {% endfor %}  
+    {% endif %}  
+    {% endwith %}
+    <h1>Login</h1>
+    <form action = "/login" method = "POST">
+
+        <label>nsec : </label>
+        <input type="text" placeholder="nsec..." name ="nsec" />
+
+        <div style="padding-bottom: 20px;"></div>
+        <button type="submit" class="btn-small btn">Send</button>
+
+    </form>
+
+</body>
